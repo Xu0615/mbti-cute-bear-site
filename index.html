@@ -3,78 +3,123 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>糖果星球人格测试</title>
+    <title>一二和布布 · MBTI熊格测试</title>
     <meta
       name="description"
-      content="30题可爱风人格测试，测出你的专属MBTI类型与成长建议。"
+      content="一二和布布情侣熊格测试：分角色30题，测出专属熊格类型、相处特点与升级建议。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <div class="bg-decoration" aria-hidden="true">
-      <span class="blob blob-a"></span>
-      <span class="blob blob-b"></span>
-      <span class="blob blob-c"></span>
-      <span class="dot-grid"></span>
+  <body class="role-yier">
+    <div class="bg-layer" aria-hidden="true">
+      <span class="soft-circle circle-a"></span>
+      <span class="soft-circle circle-b"></span>
+      <span class="soft-circle circle-c"></span>
+      <span class="dot-layer"></span>
     </div>
 
+    <header class="sticker-rail" aria-hidden="true">
+      <img src="./yier.png" alt="" />
+      <img src="./bubu.png" alt="" />
+      <img src="./yier.png" alt="" />
+      <img src="./bubu.png" alt="" />
+      <img src="./yier.png" alt="" />
+      <img src="./bubu.png" alt="" />
+    </header>
+
     <main class="app-shell">
-      <section id="home-screen" class="screen active" aria-labelledby="home-title">
+      <section id="entry-screen" class="screen active" aria-labelledby="entry-title">
         <div class="card hero-card">
-          <p class="kicker">Cute MBTI Test</p>
-          <h1 id="home-title">糖果星球人格测试</h1>
+          <p class="kicker">Yier &amp; Bubu Love Lab</p>
+          <h1 id="entry-title">一二和布布 · MBTI熊格测试</h1>
           <p class="subtitle">
-            30道选择题，3~6分钟完成。你会获得人格类型、详细介绍、优势盲点和专属成长建议。
+            先选择你当前代入的角色：<strong>一二（女熊向）</strong>或<strong>布布（男熊向）</strong>。
+            两个角色题库完全不同，各 30 题，最终得到专属熊格与情侣互动建议。
           </p>
 
-          <div class="home-grid">
-            <label class="input-group" for="nickname-input">
-              <span>你的昵称</span>
-              <input
-                id="nickname-input"
-                type="text"
-                maxlength="20"
-                placeholder="例如：小橘子"
-                autocomplete="name"
-              />
-            </label>
-
-            <fieldset class="mood-pills" id="mood-pills">
-              <legend>今天的状态</legend>
-              <button type="button" class="pill active" data-mood="sun">阳光爆棚</button>
-              <button type="button" class="pill" data-mood="mint">温柔安静</button>
-              <button type="button" class="pill" data-mood="sky">灵感满格</button>
-            </fieldset>
+          <div class="duo-hero">
+            <img src="./yier.png" alt="一二形象" />
+            <img src="./bubu.png" alt="布布形象" />
           </div>
 
+          <div id="role-cards" class="role-cards" role="group" aria-label="角色选择">
+            <button type="button" class="role-card" data-role="yier">
+              <img src="./yier.png" alt="一二" />
+              <h2>我是一二</h2>
+              <p>白色小熊，乐观单纯，黑蝴蝶结常驻。偏重细腻表达与可爱行动力。</p>
+              <span class="role-tag">女熊向测评</span>
+            </button>
+            <button type="button" class="role-card" data-role="bubu">
+              <img src="./bubu.png" alt="布布" />
+              <h2>我是布布</h2>
+              <p>棕色小熊，憨态可掬，护航担当。偏重行动守护与稳定陪伴力。</p>
+              <span class="role-tag">男熊向测评</span>
+            </button>
+          </div>
+
+          <label class="input-group" for="nickname-input">
+            <span>你的昵称（会出现在结果卡）</span>
+            <input
+              id="nickname-input"
+              type="text"
+              maxlength="20"
+              placeholder="例如：奶油小熊"
+              autocomplete="nickname"
+            />
+          </label>
+
           <ul class="feature-list">
-            <li>题目场景化，不枯燥</li>
-            <li>结果可生成分享链接</li>
-            <li>支持人格匹配度趣味分析</li>
+            <li>一二 16 种熊格 + 布布 16 种熊格，风格独立且可互动</li>
+            <li>题目是具体情侣日常场景，不空泛</li>
+            <li>结果支持分享链接与跨角色匹配度分析</li>
           </ul>
 
-          <button id="start-btn" class="btn btn-primary" type="button">开始测试</button>
+          <button id="start-btn" class="btn btn-primary" type="button">开始测评</button>
+          <p id="entry-tip" class="entry-tip"></p>
         </div>
       </section>
 
       <section id="quiz-screen" class="screen" aria-live="polite">
         <div class="card quiz-card">
+          <div class="quiz-banner">
+            <div class="role-chip role-chip-main">
+              <img id="quiz-role-avatar" src="./yier.png" alt="" />
+              <div>
+                <p id="quiz-role-name" class="chip-name"></p>
+                <p class="chip-sub">当前作答角色</p>
+              </div>
+            </div>
+            <div class="role-chip role-chip-partner">
+              <img id="quiz-partner-avatar" src="./bubu.png" alt="" />
+              <div>
+                <p id="quiz-partner-name" class="chip-name"></p>
+                <p class="chip-sub">情侣互动参照</p>
+              </div>
+            </div>
+          </div>
+
           <div class="quiz-header">
             <p id="progress-text">第 1 / 30 题</p>
-            <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="1">
+            <div
+              class="progress-track"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="30"
+              aria-valuenow="1"
+            >
               <span id="progress-fill" class="progress-fill"></span>
             </div>
           </div>
 
+          <p id="question-pair" class="question-pair"></p>
           <h2 id="question-title" class="question-title"></h2>
           <div id="options-wrap" class="options-wrap"></div>
-
           <p id="encourage-text" class="encourage-text"></p>
 
           <div class="quiz-actions">
@@ -86,36 +131,56 @@
 
       <section id="result-screen" class="screen" aria-live="polite">
         <div class="card result-card" id="result-card">
-          <div class="result-top">
-            <p class="kicker">Your Result</p>
-            <h2 id="result-type" class="result-type">ENFP</h2>
+          <div class="result-hero">
+            <img id="result-role-avatar" src="./yier.png" alt="" class="result-avatar main" />
+            <img id="result-partner-avatar" src="./bubu.png" alt="" class="result-avatar partner" />
+            <p class="kicker">MBTI熊格结果</p>
+            <h2 id="result-type" class="result-type"></h2>
             <p id="result-name" class="result-name"></p>
+            <p id="result-slogan" class="result-slogan"></p>
             <p id="result-summary" class="result-summary"></p>
           </div>
 
           <div class="result-layout">
             <section class="result-panel">
-              <h3>维度偏好</h3>
+              <h3>熊格维度</h3>
               <div id="dimension-bars" class="dimension-bars"></div>
             </section>
 
             <section class="result-panel">
-              <h3>你的优势</h3>
-              <ul id="strength-list" class="tag-list"></ul>
-              <h3>可能盲点</h3>
-              <ul id="blind-list" class="tag-list"></ul>
+              <h3>你最亮眼的可爱力</h3>
+              <ul id="highlight-list" class="tag-list"></ul>
+              <h3>日常高频行为</h3>
+              <ul id="habit-list" class="tag-list"></ul>
             </section>
 
             <section class="result-panel">
-              <h3>适合环境</h3>
-              <ul id="fit-list" class="tag-list"></ul>
-              <h3>成长建议</h3>
+              <h3>容易卡住的点</h3>
+              <ul id="blind-list" class="tag-list"></ul>
+              <h3>升级建议</h3>
               <ul id="growth-list" class="tag-list"></ul>
+            </section>
+
+            <section class="result-panel">
+              <h3>和TA的互动提示</h3>
+              <p id="partner-focus" class="plain-text"></p>
+              <h3>情侣协作建议</h3>
+              <ul id="couple-list" class="tag-list"></ul>
             </section>
           </div>
 
+          <section class="result-panel match-panel">
+            <h3>一二 × 布布 匹配度</h3>
+            <div class="match-row">
+              <label for="partner-type">选择对方熊格</label>
+              <select id="partner-type"></select>
+              <button id="calc-match-btn" class="btn btn-light" type="button">计算匹配度</button>
+            </div>
+            <p id="match-output" class="match-output"></p>
+          </section>
+
           <section class="result-panel share-panel">
-            <h3>分享你的结果</h3>
+            <h3>分享你的熊格卡</h3>
             <div class="share-row">
               <input id="share-link" type="text" readonly />
               <button id="copy-link-btn" class="btn btn-light" type="button">复制链接</button>
@@ -123,25 +188,15 @@
             <p id="copy-tip" class="copy-tip"></p>
           </section>
 
-          <section class="result-panel match-panel">
-            <h3>人格匹配度（有趣版）</h3>
-            <div class="match-row">
-              <label for="friend-type">朋友类型</label>
-              <select id="friend-type"></select>
-              <button id="calc-match-btn" class="btn btn-light" type="button">计算匹配度</button>
-            </div>
-            <p id="match-output" class="match-output"></p>
-          </section>
-
           <div class="result-actions">
-            <button id="restart-btn" class="btn btn-primary" type="button">重新测试</button>
+            <button id="restart-btn" class="btn btn-primary" type="button">重新选择角色并测评</button>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="page-footer">
-      <p>仅供娱乐与自我探索，不作为专业心理诊断依据。</p>
+      <p>本测试仅用于情侣互动与自我探索，不作为心理诊断依据。</p>
     </footer>
 
     <script src="./data/questions.js"></script>

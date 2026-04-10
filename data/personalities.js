@@ -1,130 +1,391 @@
-﻿window.MBTI_PERSONALITIES = {
-  INTJ: {
-    name: "战略建筑师",
-    summary: "你擅长独立思考、长期规划和系统优化，通常能看到别人忽略的关键路径。",
-    strengths: ["结构化思维强", "目标感清晰", "抗干扰能力高", "能把复杂问题拆解"],
-    blindSpots: ["容易显得过于严肃", "对低效流程容忍度低", "情绪表达偏克制"],
-    fit: ["策略规划", "产品架构", "研究分析", "需要长期主义的岗位"],
-    growth: ["练习阶段性表达肯定", "在关键节点同步思路", "保留试错空间避免过度完美"]
-  },
-  INTP: {
-    name: "逻辑探索家",
-    summary: "你喜欢追问本质，热爱模型和概念，经常在安静环境里迸发高质量洞见。",
-    strengths: ["抽象分析能力强", "好奇心持续", "能提出新框架", "独立学习快"],
-    blindSpots: ["容易想太多做太慢", "对重复事务耐心不足", "有时忽略他人节奏"],
-    fit: ["算法与研发", "学术研究", "数据分析", "创新原型探索"],
-    growth: ["用短周期产出验证想法", "把结论翻译成可执行步骤", "建立可复用工作流"]
-  },
-  ENTJ: {
-    name: "指挥官",
-    summary: "你天然擅长组织资源和推动目标落地，面对不确定性依然能快速决策。",
-    strengths: ["领导与统筹能力强", "结果导向明确", "执行推动力高", "敢于承担责任"],
-    blindSpots: ["节奏偏快，容易压迫团队", "不耐受模糊表达", "偶尔忽视情感需求"],
-    fit: ["项目管理", "业务增长", "团队管理", "创业与组织建设"],
-    growth: ["给团队留表达窗口", "增加过程反馈而非只看结果", "关注人和目标的双赢"]
-  },
-  ENTP: {
-    name: "点子发明家",
-    summary: "你反应快、创意多，擅长用新视角重组问题，是团队里的灵感引擎。",
-    strengths: ["创意爆发力强", "沟通与说服能力好", "适应变化快", "善于连接资源"],
-    blindSpots: ["容易三分钟热度", "收尾耐心不足", "可能忽略细节与稳定性"],
-    fit: ["创意策划", "产品创新", "市场增长", "商业模式探索"],
-    growth: ["为每个点子设置完成标准", "定期复盘优先级", "给细节执行找搭档"]
-  },
-  INFJ: {
-    name: "洞察引路人",
-    summary: "你有很强的同理心和价值判断，擅长在复杂关系中看到深层动机与意义。",
-    strengths: ["洞察力强", "共情能力高", "价值导向稳定", "善于深度沟通"],
-    blindSpots: ["容易情绪内耗", "不擅长强硬拒绝", "有时对自己要求过高"],
-    fit: ["心理与教育", "内容策划", "用户研究", "公益与文化方向"],
-    growth: ["设定清晰边界", "将理想拆成可执行行动", "练习把需求直接说出来"]
-  },
-  INFP: {
-    name: "理想诗人",
-    summary: "你重视真实与价值一致性，拥有细腻感受力和丰富想象，擅长表达独特观点。",
-    strengths: ["创造力与想象力高", "价值感稳定", "善于理解他人", "表达有温度"],
-    blindSpots: ["容易拖延启动", "对冲突敏感", "现实推进时可能犹豫"],
-    fit: ["写作与设计", "品牌内容", "心理支持", "文化创作"],
-    growth: ["用小目标降低启动门槛", "在表达价值前先对齐事实", "建立稳定节奏"]
-  },
-  ENFJ: {
-    name: "温暖组织者",
-    summary: "你擅长激励他人、凝聚共识，能够在团队中兼顾方向感与情感连接。",
-    strengths: ["沟通协调能力强", "善于鼓舞团队", "共识推动力高", "责任感强"],
-    blindSpots: ["容易过度承担", "不愿让他人失望", "有时忽略个人需求"],
-    fit: ["团队管理", "培训辅导", "客户成功", "社区运营"],
-    growth: ["学会合理分工", "把帮助他人和照顾自己并行", "在关键节点说清优先级"]
-  },
-  ENFP: {
-    name: "活力梦想家",
-    summary: "你热情外向、想法丰富，喜欢探索新可能，并能快速点燃团队氛围。",
-    strengths: ["感染力强", "创意与表达并重", "社交连接能力高", "适应新环境快"],
-    blindSpots: ["专注力易分散", "对重复事务耐心有限", "计划落地可能不稳定"],
-    fit: ["创意传播", "品牌营销", "活动策划", "内容与社群"],
-    growth: ["一次只追一个重点目标", "用时间块保护深度工作", "把灵感沉淀为流程"]
-  },
-  ISTJ: {
-    name: "稳健执行者",
-    summary: "你可靠、严谨、重承诺，擅长把任务稳稳落地，是团队中的稳定核心。",
-    strengths: ["执行稳定", "细节把控好", "责任心强", "流程意识清晰"],
-    blindSpots: ["对变化适应较慢", "容易给自己压力", "不爱高调表达"],
-    fit: ["运营管理", "财务与审计", "项目执行", "质量控制"],
-    growth: ["给变化预留缓冲方案", "主动同步进展减少误解", "适当尝试新工具提效"]
-  },
-  ISFJ: {
-    name: "温柔守护者",
-    summary: "你细致体贴、重视秩序和关系稳定，擅长用行动让团队感到安心。",
-    strengths: ["服务意识强", "细节记忆好", "合作稳定", "关怀落到行动"],
-    blindSpots: ["不擅长表达拒绝", "容易默默扛事", "面对冲突时倾向回避"],
-    fit: ["行政与支持", "教育与护理", "用户服务", "团队协作岗位"],
-    growth: ["先明确自己的边界", "练习直接表达需求", "把经验沉淀为标准模板"]
-  },
-  ESTJ: {
-    name: "秩序管理者",
-    summary: "你务实高效、重视规则，擅长推动流程与结果，能快速建立执行秩序。",
-    strengths: ["组织管理能力强", "目标推进稳定", "执行效率高", "资源调度清晰"],
-    blindSpots: ["表达可能偏强势", "对低效容忍度低", "可能忽略个体差异"],
-    fit: ["运营管理", "供应链", "项目统筹", "企业管理岗位"],
-    growth: ["在标准外保留灵活空间", "表达要求时增加背景解释", "关注团队情绪信号"]
-  },
-  ESFJ: {
-    name: "氛围维护官",
-    summary: "你擅长维护关系与合作秩序，让团队高效又有温度，是天然的协调者。",
-    strengths: ["沟通细腻", "团队协作力强", "执行与关怀兼顾", "对他人需求敏感"],
-    blindSpots: ["在冲突中容易妥协过度", "对评价较敏感", "容易被外界期待牵动"],
-    fit: ["人力与行政", "客户关系", "活动与社群运营", "教育服务"],
-    growth: ["建立自己的决策原则", "把他人需求与目标并行评估", "练习在关键时刻说不"]
-  },
-  ISTP: {
-    name: "冷静工匠",
-    summary: "你偏好动手解决问题，实操能力强，面对突发状况能迅速找到可行方案。",
-    strengths: ["问题处理冷静", "动手能力强", "学习工具快", "应急能力高"],
-    blindSpots: ["长期规划动力偏弱", "不爱频繁沟通", "情感表达较少"],
-    fit: ["工程与技术", "运维支持", "产品打样", "需要快速排障的岗位"],
-    growth: ["建立轻量计划机制", "在关键点主动同步", "把经验写成可复用清单"]
-  },
-  ISFP: {
-    name: "审美治愈师",
-    summary: "你温和敏感、重体验与美感，擅长通过作品或行动表达真实且有温度的价值。",
-    strengths: ["审美与感受力强", "同理心高", "行动低调但真诚", "适应环境能力好"],
-    blindSpots: ["不喜欢被强压节奏", "长期规划可能不足", "面对冲突时倾向退让"],
-    fit: ["视觉设计", "内容创作", "体验类产品", "艺术与人文相关岗位"],
-    growth: ["为创作设置节奏节点", "在反馈场景练习表达立场", "用流程保护灵感输出"]
-  },
-  ESTP: {
-    name: "行动破局者",
-    summary: "你勇于尝试、反应敏捷，擅长在动态局面中快速抓机会并推动结果发生。",
-    strengths: ["执行果断", "现场应变快", "资源整合强", "社交行动力高"],
-    blindSpots: ["可能忽略长期风险", "对细节耐心不足", "容易因刺激而分心"],
-    fit: ["销售拓展", "商务谈判", "活动执行", "高节奏业务场景"],
-    growth: ["重要决策前做风险清单", "给收尾环节预留时间", "建立复盘习惯"]
-  },
-  ESFP: {
-    name: "快乐点亮者",
-    summary: "你热情、亲和、表现力强，擅长把气氛带活，也能快速感知他人状态。",
-    strengths: ["亲和力强", "表达自然", "带动氛围能力高", "适应变化快"],
-    blindSpots: ["容易被短期反馈影响", "对枯燥流程耐心有限", "可能忽略长期规划"],
-    fit: ["内容与直播", "活动主持", "社群运营", "客户体验相关岗位"],
-    growth: ["把灵感沉淀为重复机制", "用小计划管理时间", "平衡即时快乐和长期目标"]
+﻿(function () {
+  const roleMeta = {
+    yier: {
+      id: "yier",
+      label: "一二",
+      fullName: "一二（女熊向）",
+      intro:
+        "白色小熊一二，黑耳朵、黑蝴蝶结、黑小脚，乐观又有点中二，信奉“常想一二，不思八九”。",
+      avatar: "./yier.png",
+      partner: "bubu"
+    },
+    bubu: {
+      id: "bubu",
+      label: "布布",
+      fullName: "布布（男熊向）",
+      intro:
+        "棕色小熊布布，憨憨暖暖，行动派护航员，嘴上会逗，心里超会疼人。",
+      avatar: "./bubu.png",
+      partner: "yier"
+    }
+  };
+
+  const yierTraits = {
+    YQ: {
+      short: "晴空外放",
+      highlight: "见面三分钟就能把空气点热，尴尬场对你几乎无效。",
+      habit: "约会时会主动起话头，还会顺手把气氛推到更热闹。",
+      risk: "答应太快，容易把行程塞得过满，留白不足。",
+      upgrade: "先问一句“你今天想慢一点吗？”再加节目，体验会更稳。",
+      partner: "喜欢布布给即时互动，别让她一直单口相声。",
+      couple: "和布布一起时，适合你开场、他收场，节奏最顺。",
+      goodWith: ["BS", "BL", "BZ", "BR"]
+    },
+    YM: {
+      short: "月雾慢热",
+      highlight: "观察力高，能在细微表情里读懂对方今天的状态。",
+      habit: "见面前会先在脑里过一遍场景，避免突兀。",
+      risk: "想太周全才开口，容易错过最佳表达时机。",
+      upgrade: "把“我在想”说出来一半，对方就会更懂你。",
+      partner: "更偏好布布给稳定陪伴，不催促、不逼问。",
+      couple: "和布布一起时，你负责细节温度，他负责安全边框。",
+      goodWith: ["BH", "BW", "BX", "BG"]
+    },
+    YP: {
+      short: "计划收束",
+      highlight: "会把浪漫变成可执行清单，甜而不乱。",
+      habit: "出门前会备好路线、时长和小预算。",
+      risk: "对临时变更敏感，容易被“随机加戏”打断情绪。",
+      upgrade: "给日程留20%空白，惊喜和稳定可以共存。",
+      partner: "希望布布提前报备变更，不要只说“到时候看”。",
+      couple: "你定骨架、他补灵感，是情侣协作最省吵模式。",
+      goodWith: ["BH", "BW", "BG", "BL"]
+    },
+    YJ: {
+      short: "即兴跳跃",
+      highlight: "现场应变快，临时改计划也能玩出花样。",
+      habit: "更看重当下心情，想到就做，执行爆发力强。",
+      risk: "容易把收尾交给明天，拖出“可爱烂尾”。",
+      upgrade: "每次即兴后补一个“落袋动作”，爽感会持续更久。",
+      partner: "喜欢布布能跟上临场脑洞，不要只说“太突然”。",
+      couple: "你负责让生活有惊喜，他负责帮惊喜落地。",
+      goodWith: ["BS", "BL", "BR", "BX"]
+    },
+    YD: {
+      short: "直甜开麦",
+      highlight: "爱和不爱都很清晰，沟通效率高，误会留存少。",
+      habit: "会直接说“我现在想抱抱你/我现在不开心”。",
+      risk: "真诚过猛时，语气可能比本意更硬。",
+      upgrade: "先给一句缓冲：“我在乎你，所以想说实话”。",
+      partner: "希望布布别装听懂，听不懂就马上追问。",
+      couple: "你把需求点亮，布布就能更准确地照顾到位。",
+      goodWith: ["BZ", "BH", "BL", "BG"]
+    },
+    YR: {
+      short: "软糯照顾",
+      highlight: "情绪安抚能力强，会让人有“被接住”的安全感。",
+      habit: "常用小动作表达爱，比如递纸巾、留小零食、记偏好。",
+      risk: "容易把委屈压在心里，外表平静内里超负荷。",
+      upgrade: "把“我也需要被照顾”列进关系规则里。",
+      partner: "喜欢布布多给情绪回应，不要只给解决方案。",
+      couple: "你是情绪软垫，布布是结构支架，搭配很稳。",
+      goodWith: ["BX", "BR", "BW", "BS"]
+    },
+    YA: {
+      short: "冒险扩张",
+      highlight: "愿意探索新体验，能带伴侣走出日常惯性。",
+      habit: "会突然提议“现在去看夜景/跨城吃早饭”。",
+      risk: "刺激过量时，容易忽略身体和预算极限。",
+      upgrade: "冒险前加“安全词”和止损点，快乐更可持续。",
+      partner: "喜欢布布愿意“先出发再微调”，不要一上来就否。",
+      couple: "你负责推开新地图，布布负责守住底线。",
+      goodWith: ["BL", "BS", "BR", "BZ"]
+    },
+    YN: {
+      short: "安巢打底",
+      highlight: "擅长把平凡日子打理出安心感和秩序美。",
+      habit: "会关注居家舒适度、作息和长期稳定投入。",
+      risk: "对风险防得太严时，关系新鲜感会下降。",
+      upgrade: "每周保留一个“可控小冒险窗口”。",
+      partner: "希望布布尊重你对稳定感的需求，不要频繁失约。",
+      couple: "你提供稳定母体，布布在其中制造恰到好处的火花。",
+      goodWith: ["BW", "BH", "BG", "BX"]
+    }
+  };
+
+  const bubuTraits = {
+    BH: {
+      short: "护航担当",
+      highlight: "遇事先扛，行动上很快让人有依靠感。",
+      habit: "会提前确认路线、天气、回家方案，安全优先。",
+      risk: "容易一肩挑，累了也不说。",
+      upgrade: "把“我也需要补能量”说出口，关系会更健康。",
+      partner: "最适配一二的慢热与计划侧，能给她稳定底盘。",
+      couple: "你把底线守住，她就敢大胆可爱。",
+      goodWith: ["YM", "YP", "YD", "YN"]
+    },
+    BS: {
+      short: "撒欢带动",
+      highlight: "热场能力强，容易把对方从低电量状态里拉出来。",
+      habit: "会用玩笑、表情和夸张动作把气氛抬起来。",
+      risk: "玩心过头时，会忽略对方当下是否想安静。",
+      upgrade: "先观察情绪信号，再决定热闹强度。",
+      partner: "最适配一二外放或即兴侧，玩乐同频效率高。",
+      couple: "你点火，她加糖，日常很容易发光。",
+      goodWith: ["YQ", "YJ", "YR", "YA"]
+    },
+    BW: {
+      short: "稳打执行",
+      highlight: "不怕重复和琐碎，能把“说好”变成“做到”。",
+      habit: "事情按优先级一件件推进，很少口号式承诺。",
+      risk: "有时显得保守，容易错过窗口机会。",
+      upgrade: "在稳中加入小试错，成长会更快。",
+      partner: "适配一二的安巢/计划需求，最能提供可预期体验。",
+      couple: "你负责落地，她负责让落地更有故事。",
+      goodWith: ["YM", "YP", "YR", "YN"]
+    },
+    BL: {
+      short: "灵策转向",
+      highlight: "脑子快，擅长在变化里找新解法。",
+      habit: "临场会迅速改路线，避免全盘卡死。",
+      risk: "解释不足时，容易被误解成“不稳”。",
+      upgrade: "改方案时顺手讲“为什么改”，信任会上升。",
+      partner: "适配一二的冒险与即兴侧，一起开新地图效率极高。",
+      couple: "你开捷径，她补灵感，组合会很有创造力。",
+      goodWith: ["YQ", "YJ", "YD", "YA"]
+    },
+    BZ: {
+      short: "憨直明示",
+      highlight: "态度真，不爱拐弯，边界表达清楚。",
+      habit: "会直接说“我现在在意这个”“我想这样做”。",
+      risk: "措辞太直时，温度感可能掉线。",
+      upgrade: "先肯定再表达立场，接受度会更高。",
+      partner: "和一二直甜侧很合拍，沟通路径最短。",
+      couple: "你给清晰，她给柔化，既快又不伤感情。",
+      goodWith: ["YQ", "YD", "YA", "YP"]
+    },
+    BX: {
+      short: "细腻聆听",
+      highlight: "能听见弦外音，擅长在情绪还没爆发前接住。",
+      habit: "会记对方小偏好，靠细节表达重视。",
+      risk: "容易过度解读，反而增加焦虑。",
+      upgrade: "确认式提问代替猜测，省掉内耗。",
+      partner: "和一二软糯/慢热侧特别稳，情绪同频度高。",
+      couple: "你负责接住，她负责表达，关系更松弛。",
+      goodWith: ["YM", "YR", "YN", "YJ"]
+    },
+    BG: {
+      short: "领航控盘",
+      highlight: "大局感强，关键时刻能做决定并兜底。",
+      habit: "关系里会主动提出规则和方向。",
+      risk: "控盘欲过强时，对方会感到被安排。",
+      upgrade: "把“共同决定”写进流程，控制感会转成安全感。",
+      partner: "适配一二计划与直甜侧，执行协同度高。",
+      couple: "你定航向，她加情绪色彩，推进很稳。",
+      goodWith: ["YP", "YD", "YN", "YM"]
+    },
+    BR: {
+      short: "松弛陪跑",
+      highlight: "不急着赢，擅长把关系养在舒服节奏里。",
+      habit: "会留白、会等人，不强推同一速度。",
+      risk: "过度随和时，容易被误解成不上心。",
+      upgrade: "关键节点主动给承诺，松弛不等于松散。",
+      partner: "适配一二即兴与安抚侧，关系舒张有弹性。",
+      couple: "你负责呼吸感，她负责小浪漫，长期幸福度高。",
+      goodWith: ["YJ", "YR", "YA", "YQ"]
+    }
+  };
+
+  const yierNames = {
+    QPDA: "星火冲浪熊",
+    QPDN: "闹钟棉花熊",
+    QPRA: "暖贴探路熊",
+    QPRN: "收纳糖霜熊",
+    QJDA: "旋转烟花熊",
+    QJDN: "夜市即兴熊",
+    QJRA: "抱抱冒险熊",
+    QJRN: "迷路奶糖熊",
+    MPDA: "便签舰长熊",
+    MPDN: "被窝总策熊",
+    MPRA: "静水手帐熊",
+    MPRN: "奶盖守屋熊",
+    MJDA: "月光突击熊",
+    MJDN: "雨滴慢煮熊",
+    MJRA: "轻语流浪熊",
+    MJRN: "云团安抚熊"
+  };
+
+  const bubuNames = {
+    HWZG: "木盾队长熊",
+    HWZR: "围裙守夜熊",
+    HWXG: "暖炉调频熊",
+    HWXR: "枕边维修熊",
+    HLZG: "路书护航熊",
+    HLZR: "咖啡补给熊",
+    HLXG: "细节导航熊",
+    HLXR: "软垫陪跑熊",
+    SWZG: "热场硬糖熊",
+    SWZR: "烧烤打趣熊",
+    SWXG: "开心监听熊",
+    SWXR: "慢炖逗哏熊",
+    SLZG: "机灵突围熊",
+    SLZR: "野营机修熊",
+    SLXG: "共情探照熊",
+    SLXR: "毛毯躺平熊"
+  };
+
+  const yierStories = {
+    QPDA: "你会把约会做成“有流程的惊喜”，每一步都热闹且不失控。",
+    QPDN: "你表面元气冲锋，内里却把生活收纳得柔软有序。",
+    QPRA: "你擅长边冒险边照顾人，甜度和安全感一起给满。",
+    QPRN: "你像会发光的收纳盒，热闹归热闹，日子始终井井有条。",
+    QJDA: "你是现场灵感发动机，能把普通夜晚点成节日。",
+    QJDN: "你爱即兴和烟火，但会在关键时刻把节奏拉回舒服区。",
+    QJRA: "你是会拥抱人的小探险家，敢玩也敢照顾。",
+    QJRN: "你像软糖导航员，迷路也不慌，总能把尴尬变可爱回忆。",
+    MPDA: "你安静但有主心骨，计划一开，推进像小火车。",
+    MPDN: "你是被窝里的战略家，慢热却极其靠谱。",
+    MPRA: "你温柔地安排世界，细节里全是体贴。",
+    MPRN: "你是关系里的稳定器，日常在你手里会自动降噪。",
+    MJDA: "你平时安静，关键时刻会突然超勇敢。",
+    MJDN: "你喜欢慢慢来，但心里一直有自己的自由路线。",
+    MJRA: "你是低饱和浪漫派，轻声细语却能打动人。",
+    MJRN: "你像云朵沙发，谁靠近你都会被温柔兜住。"
+  };
+
+  const bubuStories = {
+    HWZG: "你是“可靠感”本体，关键时刻总能站在最前面。",
+    HWZR: "你把爱藏在日常守护里，细水流长但非常稳。",
+    HWXG: "你外表憨直，内里细腻，会把安稳做到极致。",
+    HWXR: "你是慢节奏守护者，给人一种“有你就不慌”的底气。",
+    HLZG: "你会护航，也会变阵，是能打硬仗的伴侣型选手。",
+    HLZR: "你爱效率也爱松弛，能把生活打理得有条有趣。",
+    HLXG: "你在变化中依旧照顾细节，属于高阶体贴派。",
+    HLXR: "你像可移动安全屋，走到哪都能让人放松。",
+    SWZG: "你热场快、行动快，像一颗会照顾人的硬糖。",
+    SWZR: "你会逗、会扛、会陪，日常幸福感很高。",
+    SWXG: "你看起来闹腾，其实很会听，情绪照护做得细。",
+    SWXR: "你是快乐制造机，也是安静陪伴者，反差很迷人。",
+    SLZG: "你脑子快又肯扛事，临场处理能力非常强。",
+    SLZR: "你是野外和生活双修派，乱局里也能搞定细节。",
+    SLXG: "你灵活又共情，懂节奏也懂情绪，是高配伴侣型。",
+    SLXR: "你松弛但不散漫，舒服和可靠能同时存在。"
+  };
+
+  const yierDimensions = [
+    { name: "社交温度", traits: ["YQ", "YM"], labels: ["晴空外放", "月雾慢热"] },
+    { name: "节奏习惯", traits: ["YP", "YJ"], labels: ["计划收束", "即兴跳跃"] },
+    { name: "表达口味", traits: ["YD", "YR"], labels: ["直甜开麦", "软糯照顾"] },
+    { name: "生活地图", traits: ["YA", "YN"], labels: ["冒险扩张", "安巢打底"] }
+  ];
+
+  const bubuDimensions = [
+    { name: "陪伴姿态", traits: ["BH", "BS"], labels: ["护航担当", "撒欢带动"] },
+    { name: "做事脑回路", traits: ["BW", "BL"], labels: ["稳打执行", "灵策转向"] },
+    { name: "情绪表达", traits: ["BZ", "BX"], labels: ["憨直明示", "细腻聆听"] },
+    { name: "关系节拍", traits: ["BG", "BR"], labels: ["领航控盘", "松弛陪跑"] }
+  ];
+
+  const yierTraitToLetter = {
+    YQ: "Q",
+    YM: "M",
+    YP: "P",
+    YJ: "J",
+    YD: "D",
+    YR: "R",
+    YA: "A",
+    YN: "N"
+  };
+
+  const bubuTraitToLetter = {
+    BH: "H",
+    BS: "S",
+    BW: "W",
+    BL: "L",
+    BZ: "Z",
+    BX: "X",
+    BG: "G",
+    BR: "R"
+  };
+
+  const yierLetterToTrait = {
+    Q: "YQ",
+    M: "YM",
+    P: "YP",
+    J: "YJ",
+    D: "YD",
+    R: "YR",
+    A: "YA",
+    N: "YN"
+  };
+
+  const bubuLetterToTrait = {
+    H: "BH",
+    S: "BS",
+    W: "BW",
+    L: "BL",
+    Z: "BZ",
+    X: "BX",
+    G: "BG",
+    R: "BR"
+  };
+
+  function decodeByLetters(code, letterMap) {
+    return code.split("").map((letter) => letterMap[letter]);
   }
-};
+
+  function buildProfiles(roleLabel, names, stories, traitLib, decodeFn) {
+    const profiles = {};
+    Object.keys(names).forEach((code) => {
+      const traitKeys = decodeFn(code);
+      const cards = traitKeys.map((k) => traitLib[k]);
+
+      profiles[code] = {
+        code,
+        name: names[code],
+        slogan: stories[code],
+        summary: `${roleLabel}${names[code]}是「${cards
+          .map((c) => c.short)
+          .join(" × ")}」组合。你在关系里有鲜明风格，也很有专属记忆点。`,
+        highlights: cards.map((c) => c.highlight),
+        habits: cards.map((c) => c.habit),
+        blindSpots: cards.map((c) => c.risk),
+        growth: cards.map((c) => c.upgrade),
+        coupleNotes: [cards[0].couple, cards[2].couple],
+        partnerFocus: `${cards[0].partner} ${cards[1].partner} ${cards[2].partner}`,
+        traitKeys
+      };
+    });
+    return profiles;
+  }
+
+  const yierPack = {
+    role: "yier",
+    label: "一二",
+    counterpart: "bubu",
+    dimensions: yierDimensions,
+    traitCards: yierTraits,
+    traitToLetter: yierTraitToLetter,
+    letterToTrait: yierLetterToTrait,
+    profiles: buildProfiles(
+      "一二·",
+      yierNames,
+      yierStories,
+      yierTraits,
+      (code) => decodeByLetters(code, yierLetterToTrait)
+    )
+  };
+
+  const bubuPack = {
+    role: "bubu",
+    label: "布布",
+    counterpart: "yier",
+    dimensions: bubuDimensions,
+    traitCards: bubuTraits,
+    traitToLetter: bubuTraitToLetter,
+    letterToTrait: bubuLetterToTrait,
+    profiles: buildProfiles(
+      "布布·",
+      bubuNames,
+      bubuStories,
+      bubuTraits,
+      (code) => decodeByLetters(code, bubuLetterToTrait)
+    )
+  };
+
+  window.BEAR_ROLE_META = roleMeta;
+  window.BEAR_PROFILE_PACK = {
+    yier: yierPack,
+    bubu: bubuPack
+  };
+})();
