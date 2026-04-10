@@ -1,0 +1,151 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>糖果星球人格测试</title>
+    <meta
+      name="description"
+      content="30题可爱风人格测试，测出你的专属MBTI类型与成长建议。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-decoration" aria-hidden="true">
+      <span class="blob blob-a"></span>
+      <span class="blob blob-b"></span>
+      <span class="blob blob-c"></span>
+      <span class="dot-grid"></span>
+    </div>
+
+    <main class="app-shell">
+      <section id="home-screen" class="screen active" aria-labelledby="home-title">
+        <div class="card hero-card">
+          <p class="kicker">Cute MBTI Test</p>
+          <h1 id="home-title">糖果星球人格测试</h1>
+          <p class="subtitle">
+            30道选择题，3~6分钟完成。你会获得人格类型、详细介绍、优势盲点和专属成长建议。
+          </p>
+
+          <div class="home-grid">
+            <label class="input-group" for="nickname-input">
+              <span>你的昵称</span>
+              <input
+                id="nickname-input"
+                type="text"
+                maxlength="20"
+                placeholder="例如：小橘子"
+                autocomplete="name"
+              />
+            </label>
+
+            <fieldset class="mood-pills" id="mood-pills">
+              <legend>今天的状态</legend>
+              <button type="button" class="pill active" data-mood="sun">阳光爆棚</button>
+              <button type="button" class="pill" data-mood="mint">温柔安静</button>
+              <button type="button" class="pill" data-mood="sky">灵感满格</button>
+            </fieldset>
+          </div>
+
+          <ul class="feature-list">
+            <li>题目场景化，不枯燥</li>
+            <li>结果可生成分享链接</li>
+            <li>支持人格匹配度趣味分析</li>
+          </ul>
+
+          <button id="start-btn" class="btn btn-primary" type="button">开始测试</button>
+        </div>
+      </section>
+
+      <section id="quiz-screen" class="screen" aria-live="polite">
+        <div class="card quiz-card">
+          <div class="quiz-header">
+            <p id="progress-text">第 1 / 30 题</p>
+            <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="1">
+              <span id="progress-fill" class="progress-fill"></span>
+            </div>
+          </div>
+
+          <h2 id="question-title" class="question-title"></h2>
+          <div id="options-wrap" class="options-wrap"></div>
+
+          <p id="encourage-text" class="encourage-text"></p>
+
+          <div class="quiz-actions">
+            <button id="prev-btn" class="btn btn-light" type="button">上一题</button>
+            <button id="next-btn" class="btn btn-primary" type="button">下一题</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="result-screen" class="screen" aria-live="polite">
+        <div class="card result-card" id="result-card">
+          <div class="result-top">
+            <p class="kicker">Your Result</p>
+            <h2 id="result-type" class="result-type">ENFP</h2>
+            <p id="result-name" class="result-name"></p>
+            <p id="result-summary" class="result-summary"></p>
+          </div>
+
+          <div class="result-layout">
+            <section class="result-panel">
+              <h3>维度偏好</h3>
+              <div id="dimension-bars" class="dimension-bars"></div>
+            </section>
+
+            <section class="result-panel">
+              <h3>你的优势</h3>
+              <ul id="strength-list" class="tag-list"></ul>
+              <h3>可能盲点</h3>
+              <ul id="blind-list" class="tag-list"></ul>
+            </section>
+
+            <section class="result-panel">
+              <h3>适合环境</h3>
+              <ul id="fit-list" class="tag-list"></ul>
+              <h3>成长建议</h3>
+              <ul id="growth-list" class="tag-list"></ul>
+            </section>
+          </div>
+
+          <section class="result-panel share-panel">
+            <h3>分享你的结果</h3>
+            <div class="share-row">
+              <input id="share-link" type="text" readonly />
+              <button id="copy-link-btn" class="btn btn-light" type="button">复制链接</button>
+            </div>
+            <p id="copy-tip" class="copy-tip"></p>
+          </section>
+
+          <section class="result-panel match-panel">
+            <h3>人格匹配度（有趣版）</h3>
+            <div class="match-row">
+              <label for="friend-type">朋友类型</label>
+              <select id="friend-type"></select>
+              <button id="calc-match-btn" class="btn btn-light" type="button">计算匹配度</button>
+            </div>
+            <p id="match-output" class="match-output"></p>
+          </section>
+
+          <div class="result-actions">
+            <button id="restart-btn" class="btn btn-primary" type="button">重新测试</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>仅供娱乐与自我探索，不作为专业心理诊断依据。</p>
+    </footer>
+
+    <script src="./data/questions.js"></script>
+    <script src="./data/personalities.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
